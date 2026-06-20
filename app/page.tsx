@@ -1,5 +1,4 @@
 import GithubSection from "@/components/ui/github-cal";
-
 import Achievements from "@/components/ui/sections/achivements";
 import Footer from "@/components/ui/sections/footer";
 import Skills from "@/components/ui/sections/skills";
@@ -14,19 +13,21 @@ const JM = JetBrains_Mono({ subsets: ["latin"] });
 export default function Home() {
   return (
     <>
-      <div
-        className={cn(
-          JM.className,
-          "grid-bg flex flex-col flex-1 items-center justify-center gap-y-8",
-        )}
-      >
-        <Header />
-        <Skills />
-        <Projects />
-        <Certifications />
-        <Achievements />
-        <GithubSection />
-        <Footer />
+      <div className="grid-bg min-h-screen flex justify-center px-5 py-16">
+        <div
+          className={cn(
+            JM.className,
+            " flex flex-col flex-1 justify-center gap-y-8 max-w-3xl",
+          )}
+        >
+          <Header />
+          <Skills />
+          <Projects />
+          <Certifications />
+          <Achievements />
+          <GithubSection />
+          <Footer />
+        </div>
       </div>
     </>
   );
