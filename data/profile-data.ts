@@ -75,10 +75,10 @@ export const achievements = [
     title: "Tech Lead – College Coding Club",
     description: "Led technical initiatives, mentored peers, and organized competitive programming events",
   },
-  {
-    title: "Organized Code Hunt",
-    description: "Designed a unique event where participants solved progressive programming riddles to unlock DSA challenges",
-  },
+//   {
+//     title: "Organized Code Hunt",
+//     description: "Designed a unique event where participants solved progressive programming riddles to unlock DSA challenges",
+//   },
   {
     title: "General Championship – 1st Rank",
     description: "Led a 20-member team across multiple competitive events, securing 1st place in overall General Championship",
