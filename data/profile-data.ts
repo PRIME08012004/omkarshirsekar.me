@@ -9,6 +9,15 @@ export const profile = {
     email: "mailto:iamomkar0007@gmail.com",
   },
 };
+export const education = {
+  degree: "B.E. in Computer Engineering",
+  college: "Pillai HOC College of Engineering and Technology",
+  university: "Mumbai University",
+  period: "2022 – 2026",
+};
+
+export const summary =
+  "Final-year Computer Engineering student specializing in full-stack development and DevOps. I build production-grade web applications using the MERN stack, Next.js, and TypeScript. Currently open to full-time roles in fullstack and DevOps.";
 
 export const projects = [
      {
