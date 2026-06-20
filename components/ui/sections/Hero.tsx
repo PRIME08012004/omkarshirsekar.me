@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile-data";
+import Button from "../button";
 
 export default function Header() {
   return (
@@ -11,7 +12,8 @@ export default function Header() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="mb-10"
     >
-      <div className="flex items-start gap-3 mb-2">
+     <div className="flex justify-between">
+         <div className="flex items-start gap-3 mb-2">
         <div className="w-18 h-18 rounded-full bg-neutral-700 overflow-hidden flex items-center justify-center text-sm font-medium text-neutral-300">
           <Image 
           width={200}
@@ -24,7 +26,12 @@ export default function Header() {
           <h1 className="text-3xl font-medium text-neutral-100">{profile.name}</h1>
           <p className="text-sm text-neutral-500">{profile.tagline}</p>
         </div>
+
       </div>
+      <div className="flex items-center">
+         <Button variant="outline" href="mailto:iamomkar0007@gmail.com">Let&apos;s Connect</Button>
+      </div>
+     </div>
     </motion.div>
   );
 }

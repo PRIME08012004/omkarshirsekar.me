@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { JetBrains_Mono } from "next/font/google";
 import Education from "@/components/ui/sections/education";
 import Summary from "@/components/ui/sections/introduction";
-
+import FadeIn from "@/components/ui/fade-in";
 const JM = JetBrains_Mono({ subsets: ["latin"] });
 
 export default function Home() {
@@ -22,15 +22,16 @@ export default function Home() {
             " flex flex-col flex-1 justify-center gap-y-8 max-w-3xl sm:gap-y-8 w-full  sm:max-w-2xl md:max-w-3xl",
           )}
         >
-          <Header />
-          <Summary/>
-          <Skills />
-          <Projects />
-          <Certifications />
-          <Achievements />
-          <Education/>
-          <GithubSection />
-          <Footer />
+       <FadeIn direction="bottomLeft"><Header /></FadeIn>
+       <FadeIn direction="bottomLeft" delay={0.1}><Summary /></FadeIn>
+       
+       <FadeIn direction="bottomLeft" delay={0.1}><Skills /></FadeIn>
+       <FadeIn direction="bottomRight" delay={0.1}><Projects /></FadeIn>
+       <FadeIn direction="bottomLeft" delay={0.1}><Certifications /></FadeIn>
+       <FadeIn direction="bottomRight" delay={0.1}><Education /></FadeIn>
+       <FadeIn direction="bottomRight" delay={0.1}><Achievements /></FadeIn>
+       <FadeIn direction="bottomLeft" delay={0.1}><GithubSection /></FadeIn>
+       <FadeIn direction="bottomLeft" delay={0.1}><Footer /></FadeIn>
         </div>
       </div>
     </>
