@@ -16,7 +16,7 @@ const item = {
 export default function Projects() {
   return (
     <section className="mb-10">
-      <p className="text-[11px] uppercase tracking-widest text-neutral-500 mb-4">Projects</p>
+      <p className="text-[11px] uppercase tracking-widest text-white mb-4">Projects</p>
       <motion.div
         variants={container}
         initial="hidden"
