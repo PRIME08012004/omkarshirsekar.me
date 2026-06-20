@@ -16,7 +16,7 @@ const item = {
 export default function Certifications() {
   return (
     <section className="mb-10">
-      <p className="text-[11px] uppercase tracking-widest text-white mb-4">Certifications</p>
+      <p className="text-[21px] uppercase tracking-widest text-white mb-4">Certifications</p>
       <motion.div
         variants={container}
         initial="hidden"

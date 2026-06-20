@@ -7,6 +7,8 @@ import Projects from "@/components/ui/sections/project";
 import Certifications from "@/components/ui/sections/certification";
 import { cn } from "@/lib/utils";
 import { JetBrains_Mono } from "next/font/google";
+import Education from "@/components/ui/sections/education";
+import Summary from "@/components/ui/sections/introduction";
 
 const JM = JetBrains_Mono({ subsets: ["latin"] });
 
@@ -21,10 +23,12 @@ export default function Home() {
           )}
         >
           <Header />
+          <Summary/>
           <Skills />
           <Projects />
           <Certifications />
           <Achievements />
+          <Education/>
           <GithubSection />
           <Footer />
         </div>

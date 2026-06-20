@@ -16,7 +16,7 @@ const item = {
 export default function Achievements() {
   return (
     <section className="mb-10">
-      <p className="text-[11px] uppercase tracking-widest text-white mb-4">
+      <p className="text-[21px] uppercase tracking-widest text-white mb-4">
         Achievements & Leadership
       </p>
       <motion.div

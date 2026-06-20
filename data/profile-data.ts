@@ -1,6 +1,6 @@
 export const profile = {
   name: "Omkar Shirsekar",
-  tagline: "I build things for the web",
+  tagline: "I build and ship things",
   email: "iamomkar0007@gmail.com",
   location: "Panvel, Maharashtra, India",
   links: {
@@ -16,8 +16,9 @@ export const education = {
   period: "2022 – 2026",
 };
 
-export const summary =
-  "Final-year Computer Engineering student specializing in full-stack development and DevOps. I build production-grade web applications using the MERN stack, Next.js, and TypeScript. Currently open to full-time roles in fullstack and DevOps.";
+export const summary = `I'm drawn to problems worth solving the kind that make someone's day easier.
+Deep into fullstack, DevOps, and anything that pushes limits.
+If that sounds like what you're building, let's connect.`;
 
 export const projects = [
      {

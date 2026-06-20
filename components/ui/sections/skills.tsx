@@ -16,7 +16,7 @@ const item = {
 export default function Skills() {
   return (
     <section className="mb-10">
-      <p className="text-[11px] uppercase tracking-widest text-white mb-4">Skills</p>
+      <p className="text-[21px] uppercase tracking-widest text-white mb-4">Skills</p>
       <motion.div
         variants={container}
         initial="hidden"
