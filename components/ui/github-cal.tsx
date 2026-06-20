@@ -1,30 +1,30 @@
 "use client";
-import { useCallback, useState } from 'react';
-import { Activity } from 'react-github-calendar';
-import {GitHubCalendar }from "react-github-calendar";
+
+import dynamic from "next/dynamic";
+
+const GitHubCalendar = dynamic(
+  () =>
+    import("react-github-calendar").then(
+      (mod) => mod.GitHubCalendar
+    ),
+  { ssr: false }
+);
 
 export default function GithubSection() {
-   const [totalCount, setTotalCount] = useState(0);
-
-  const processContributions = useCallback((contributions: Activity[]) => {
-    // Hack to calculate total count after rendering
-    setTimeout(() => {
-      const total = contributions
-        .map((el) => el.count)
-        .reduce((acc, curr) => acc + curr, 0);
-
-      setTotalCount(total);
-    }, 0);
-
-    return contributions.slice(91, 365);
-  }, []);
-
   return (
-    <GitHubCalendar
-      username="PRIME08012004"
-      transformData={processContributions}
-      
-      totalCount={totalCount}
-    />
+    <div className="flex flex-col items-center gap-4 p-2">
+      <GitHubCalendar
+        username="PRIME08012004"
+        colorScheme="dark"
+        transformData={(contributions) => {
+        const sixMonthsAgo = new Date();
+        sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 10);
+
+        return contributions.filter(
+          (day) => new Date(day.date) >= sixMonthsAgo
+        );
+      }}
+      />
+    </div>
   );
 }
