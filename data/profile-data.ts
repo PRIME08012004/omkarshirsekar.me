@@ -15,8 +15,8 @@ export const projects = [
     name: "Vivace",
     description: "Salon booking platform with glassmorphism UI, NextAuth, and Prisma-backed bookings",
     stack: ["Next.js", "Prisma", "PostgreSQL", "NextAuth"],
-    link: "https://vivace.vercel.app",
-    date: "2024",
+    link: "https://vivace-khaki.vercel.app/",
+    date: "2026",
   },
   {
     name: "Hostel Grievance Redressal System",

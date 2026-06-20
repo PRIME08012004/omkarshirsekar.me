@@ -9,7 +9,7 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.6, duration: 0.5 }}
-      className="pt-4 pb-12 flex gap-4"
+      className="pt-4 pb-12 flex gap-4  justify-center"
     >
       <a
         href={profile.links.github}
