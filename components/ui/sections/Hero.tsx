@@ -2,7 +2,8 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile-data";
-import Button from "../button";
+
+import CornerButton from "../corner-button";
 
 export default function Header() {
   return (
@@ -29,7 +30,7 @@ export default function Header() {
 
       </div>
       <div className="flex items-center">
-         <Button variant="outline" href="mailto:iamomkar0007@gmail.com">Let&apos;s Connect</Button>
+         <CornerButton href="mailto:iamomkar0007@gmail.com">Let&apos;s Connect</CornerButton>
       </div>
      </div>
     </motion.div>
