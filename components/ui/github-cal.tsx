@@ -13,6 +13,7 @@ const GitHubCalendar = dynamic(
 export default function GithubSection() {
   return (
     <div className="flex flex-col items-center gap-4 p-2">
+        <h1>Github Stats</h1>
       <GitHubCalendar
         username="PRIME08012004"
         colorScheme="dark"

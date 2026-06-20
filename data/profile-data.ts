@@ -1,8 +1,88 @@
 export const profile = {
   name: "Omkar Shirsekar",
-  role: "Full Stack Developer",
-  bio: "Building scalable web and mobile applications.",
-  github: "https://github.com/PRIME08012004",
-  linkedin: "https://linkedin.com/in/your-linkedin",
-  email: "omkar@example.com",
+  tagline: "I build things for the web",
+  email: "iamomkar0007@gmail.com",
+  location: "Panvel, Maharashtra, India",
+  links: {
+    github: "https://github.com/PRIME08012004",
+    linkedin: "https://linkedin.com/in/omkar-shirsekar",
+    email: "mailto:iamomkar0007@gmail.com",
+  },
+};
+
+export const projects = [
+     {
+    name: "Vivace",
+    description: "Salon booking platform with glassmorphism UI, NextAuth, and Prisma-backed bookings",
+    stack: ["Next.js", "Prisma", "PostgreSQL", "NextAuth"],
+    link: "https://vivace.vercel.app",
+    date: "2024",
+  },
+  {
+    name: "Hostel Grievance Redressal System",
+    description: "Multi-role grievance platform for college hostels with JWT auth and real-time status tracking",
+    stack: ["React", "Node.js", "Express.js", "MongoDB"],
+    link: "https://phcet-hms.vercel.app",
+    date: "2025",
+  },
+  {
+    name: "Quendora",
+    description: "Secure journaling app with DeepSeek AI integration and a clean, distraction-free writing experience",
+    stack: ["React", "Tailwind CSS", "Java Spring Boot", "MongoDB"],
+    link: "https://quendora.vercel.app",
+    date: "May 2026",
+  },
+//   {
+//     name: "CodeNest",
+//     description: "Real-time collaborative code editor with live cursor tracking, chat, and whiteboard",
+//     stack: ["React", "Node.js", "Socket.io", "WebSockets"],
+//     link: "https://codenest.vercel.app",
+//     date: "2024",
+//   },
+ 
+];
+
+export const certifications = [
+  {
+    name: "JavaScript",
+    by: "Jonas Schmedtmann",
+    link: "https://drive.google.com/file/d/1t8cCCXw44jabRTnodt03kWNRq8cKLX0G/view",
+  },
+  {
+    name: "Node.js / Express.js",
+    by: "Jonas Schmedtmann",
+    link: "https://drive.google.com/file/d/1NoqsRlQiAeNUNFaPCBOZhEjjRDEUeuX8/view",
+  },
+  {
+    name: "DevOps",
+    by: "Harkirat Singh",
+    link: "https://drive.google.com/file/d/1uiEIC7Iu3HE0QvX0vUaStFKQ82qLdPBf/view",
+  },
+];
+
+export const achievements = [
+  {
+    title: "Tech Lead – College Coding Club",
+    description: "Led technical initiatives, mentored peers, and organized competitive programming events",
+  },
+  {
+    title: "Organized Code Hunt",
+    description: "Designed a unique event where participants solved progressive programming riddles to unlock DSA challenges",
+  },
+  {
+    title: "General Championship – 1st Rank",
+    description: "Led a 20-member team across multiple competitive events, securing 1st place in overall General Championship",
+  },
+  {
+    title: "Tech Expo Hackathon – Top 5",
+    description: "Secured Top 5 finish among all participating teams, building and presenting solutions under time constraints",
+  },
+];
+
+export const skills = {
+  Languages: ["JavaScript", "TypeScript", "Java", "C"],
+  Frontend: ["React", "Next.js", "Tailwind CSS", "HTML5", "CSS3"],
+  Backend: ["Node.js", "Express.js", "Socket.io", "REST APIs", "WebSockets"],
+  Databases: ["MongoDB", "PostgreSQL", "Prisma ORM", "Mongoose"],
+  DevOps: ["Docker", "AWS (EC2, S3)", "CI/CD", "GitHub Actions", "Turborepo"],
 };
