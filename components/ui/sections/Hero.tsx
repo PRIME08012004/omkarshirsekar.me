@@ -29,7 +29,7 @@ export default function Header() {
         </div>
 
       </div>
-      <div className="flex items-center p-2 m-2">
+      <div className="flex items-center ">
          <CornerButton href="mailto:iamomkar0007@gmail.com">Let&apos;s Connect</CornerButton>
       </div>
      </div>

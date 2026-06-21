@@ -19,7 +19,7 @@ export default function Home() {
         <div
           className={cn(
             JM.className,
-            " flex flex-col flex-1 justify-center gap-y-8 max-w-3xl sm:gap-y-8 w-full  sm:max-w-2xl md:max-w-3xl",
+            " flex flex-col flex-1 justify-center gap-y-8 max-w-3xl sm:gap-y-8 w-full  sm:max-w-xl md:max-w-3xl ",
           )}
         >
        <FadeIn direction="bottomLeft"><Header /></FadeIn>
