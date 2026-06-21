@@ -28,13 +28,33 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>)
+
+{
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Omkar Shirsekar",
+    url: "https://omkarshirsekar.me",
+    jobTitle: "Full Stack Developer",
+    sameAs: [
+      "https://github.com/PRIME08012004",
+      "https://linkedin.com/in/omkar-shirsekar",
+    ],
+  };
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+         <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
+        {children}</body>
     </html>
   );
 }
