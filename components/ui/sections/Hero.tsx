@@ -13,7 +13,7 @@ export default function Header() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="mb-10"
     >
-     <div className="flex justify-between p-4 mt-8 md:mt-5">
+     <div className="flex justify-between  mt-8 md:mt-5">
          <div className="flex items-start gap-3 mb-2">
         <div className="w-18 h-18 rounded-full bg-neutral-700 overflow-hidden flex items-center justify-center text-sm font-medium text-neutral-300">
           <Image 
