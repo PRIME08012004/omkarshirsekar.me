@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+
+html:not(.dark) {
+  --tw-text-opacity: 1;
+}
+
+html:not(.dark) .text-neutral-200,
+html:not(.dark) .text-neutral-100,
+html:not(.dark) .text-white {
+  color: #1a1a1a !important;
+}
+
+html:not(.dark) .text-neutral-500,
+html:not(.dark) .text-neutral-400 {
+  color: #525252 !important;
+}
+
+html:not(.dark) .bg-neutral-800 {
+  background-color: #e5e5e5 !important;
+}
 :root {
   --background: #f5f4ef;
   --foreground: #1a1a1a;

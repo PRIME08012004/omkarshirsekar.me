@@ -12,13 +12,33 @@ useEffect(() => {
   setMounted(true);
 }, []);
 
-  const navContent = (
-   <div
-    className="flex items-center gap-1 px-3 py-2 rounded-xl border border-white/10 dark:border-white/10 border-black/10"
+ const navContent = (
+  <div
+    className="
+      flex items-center gap-1
+      px-3 py-2
+      rounded-2xl
+      border border-white/20 dark:border-white/10
+    "
     style={{
-      background: "rgba(15, 15, 15, 0.7)",
-      backdropFilter: "blur(12px)",
-      WebkitBackdropFilter: "blur(12px)",
+      background:
+        theme === "dark"
+          ? "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))"
+          : "linear-gradient(135deg, rgba(255,255,255,0.45), rgba(255,255,255,0.15))",
+
+      backdropFilter: "blur(24px) saturate(180%)",
+      WebkitBackdropFilter: "blur(24px) saturate(180%)",
+
+      boxShadow:
+        theme === "dark"
+          ? `
+            0 8px 32px rgba(0,0,0,0.3),
+            inset 0 1px 0 rgba(255,255,255,0.1)
+          `
+          : `
+            0 8px 32px rgba(31,38,135,0.12),
+            inset 0 1px 0 rgba(255,255,255,0.7)
+          `,
     }}
   >
       <NavIcon href="https://github.com/PRIME08012004" label="GitHub">
@@ -44,7 +64,7 @@ useEffect(() => {
       {mounted && (
         <motion.button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="p-2 rounded-lg text-neutral-400 hover:text-neutral-100 hover:bg-white/10 transition-colors duration-150"
+          className="p-2 rounded-lg text-neutral-400 hover:text-neutral-100 hover:bg-white/10 transition-colors duration-150 cursor-pointer"
           whileTap={{ scale: 0.9 }}
           aria-label="Toggle theme"
         >
@@ -71,6 +91,9 @@ useEffect(() => {
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.4, ease: "easeOut" }}
   className="flex md:hidden fixed top-4 left-1/2 -translate-x-1/2 z-[9999]"
+  style={{
+    willChange: "transform",
+  }}
 >
   {navContent}
 </motion.nav>
@@ -80,14 +103,16 @@ useEffect(() => {
   initial={{ opacity: 0, y: 10 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.4, ease: "easeOut" }}
-  className="hidden md:flex fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999]"
+  className="hidden md:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999]"
+  style={{
+    willChange: "transform",
+  }}
 >
   {navContent}
 </motion.nav>
     </>
   );
 }
-
 function NavIcon({
   href,
   label,
@@ -99,14 +124,29 @@ function NavIcon({
 }) {
   return (
     <motion.a
+    suppressHydrationWarning
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="p-2 rounded-lg text-neutral-400 hover:text-neutral-100 hover:bg-white/10 transition-colors duration-150"
-      whileTap={{ scale: 0.9 }}
+      className="
+        p-2
+        rounded-xl
+        text-neutral-400
+        hover:text-neutral-100
+        hover:bg-white/10
+        transition-all
+        duration-200
+      "
+      whileHover={{
+        scale: 1.08,
+      }}
+      whileTap={{
+        scale: 0.92,
+      }}
     >
       {children}
     </motion.a>
   );
+
 }

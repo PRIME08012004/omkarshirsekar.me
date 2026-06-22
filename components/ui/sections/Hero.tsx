@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile-data";
 
-import CornerButton from "../corner-button";
+import CornerButton from "@/components/ui/corner-button";
 
 export default function Header() {
   return (
