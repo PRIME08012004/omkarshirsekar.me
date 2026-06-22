@@ -33,7 +33,7 @@ export default function Home() {
        <FadeIn direction="bottomRight" delay={0.1}><Education /></FadeIn>
        <FadeIn direction="bottomRight" delay={0.1}><Achievements /></FadeIn>
        <FadeIn direction="bottomLeft" delay={0.1}><GithubSection /></FadeIn>
-       <FadeIn direction="bottomLeft" delay={0.1}><Footer /></FadeIn>
+       {/* <FadeIn direction="bottomLeft" delay={0.1}><Footer /></FadeIn> */}
         </div>
       </div>
     </>
