@@ -10,12 +10,14 @@ import { JetBrains_Mono } from "next/font/google";
 import Education from "@/components/ui/sections/education";
 import Summary from "@/components/ui/sections/introduction";
 import FadeIn from "@/components/ui/fade-in";
+import Navbar from "@/components/ui/navbar";
 const JM = JetBrains_Mono({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <>
-      <div className="grid-bg min-h-screen flex justify-center px-5 py-16">
+    <Navbar/>
+      <div className="grid-bg min-h-screen flex justify-center px-5 py-16 z-0 ">
         <div
           className={cn(
             JM.className,
