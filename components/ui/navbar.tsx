@@ -15,9 +15,9 @@ export default function Navbar() {
   const navContent = (
     <div
       className="
-      flex items-center gap-1
+      flex items-center gap-3
       px-20 py-2
-      rounded-[22px]
+      rounded-4xl
     "
       style={{
         background:
@@ -94,7 +94,7 @@ export default function Navbar() {
         <motion.button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           whileTap={{ scale: 0.9 }}
-          whileHover={{ scale: 1.07, y: -1 }}
+          whileHover={{ scale: 1.07, y: -8 }}
           aria-label="Toggle theme"
           className="
     flex items-center justify-center
@@ -111,9 +111,7 @@ export default function Navbar() {
                 : "rgba(255,255,255,0.55)",
 
             color:
-              theme === "dark"
-                ? "rgba(210,200,255,0.85)"
-                : "rgba(50,30,110,0.8)",
+               theme === "dark" ? "rgba(255,255,255,255)" : "rgba(0,0,0,0.8)",
 
             backdropFilter: "blur(8px)",
             WebkitBackdropFilter: "blur(8px)",
@@ -167,8 +165,8 @@ export default function Navbar() {
       <motion.nav
         initial={{ opacity: 0, y: -10, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        whileHover={{ scale: 1.015 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        // whileHover={{ scale: 1.015 }}
+        transition={{ duration: 0.1, ease: "easeOut" }}
         className="flex md:hidden fixed top-4 left-1/2 -translate-x-1/2 z-[9999]"
       >
         {navContent}
@@ -178,8 +176,8 @@ export default function Navbar() {
       <motion.nav
         initial={{ opacity: 0, y: 10, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        whileHover={{ scale: 1.015 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        // whileHover={{ scale: 1.015 }}
+        transition={{ duration: 0.1, ease: "easeOut" }}
         className="hidden md:flex fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999]"
       >
         {navContent}
@@ -211,7 +209,8 @@ function NavIcon({
         h-[34px]
         rounded-xl
         transition-all
-        duration-200
+        duration-75
+        
       "
       style={{
         background:
@@ -220,7 +219,7 @@ function NavIcon({
             : "rgba(255,255,255,0.55)",
 
         color:
-          theme === "dark" ? "rgba(210,200,255,0.85)" : "rgba(50,30,110,0.8)",
+          theme === "dark" ? "rgba(255,255,255,255)" : "rgba(0,0,0,0.8)",
 
         backdropFilter: "blur(8px)",
         WebkitBackdropFilter: "blur(8px)",
@@ -238,7 +237,7 @@ function NavIcon({
       }}
       whileHover={{
         scale: 1.07,
-        y: -1,
+        y: -8,
       }}
       whileTap={{
         scale: 0.92,
