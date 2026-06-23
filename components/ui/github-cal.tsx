@@ -19,7 +19,7 @@ export default function GithubSection() {
         colorScheme="dark"
         transformData={(contributions) => {
         const sixMonthsAgo = new Date();
-        sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 10);
+        sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 8);
 
         return contributions.filter(
           (day) => new Date(day.date) >= sixMonthsAgo
