@@ -90,5 +90,5 @@ export const skills = {
   Frontend: ["React", "Next.js", "Tailwind CSS", "HTML5", "CSS3"],
   Backend: ["Node.js", "Express.js", "Socket.io", "REST APIs", "WebSockets"],
   Databases: ["MongoDB", "PostgreSQL", "Prisma ORM", "Mongoose"],
-  DevOps: ["Docker", "AWS (EC2, S3)", "CI/CD", "GitHub Actions", "Turborepo"],
+  DevOps: ["Docker","Docker-Compose", "AWS (EC2, S3)", "CI/CD", "GitHub Actions", "Turborepo"],
 };
