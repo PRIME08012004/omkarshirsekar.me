@@ -86,9 +86,9 @@ export const achievements = [
 ];
 
 export const skills = {
-  Languages: ["JavaScript", "TypeScript", "Java", "C"],
-  Frontend: ["React", "Next.js", "Tailwind CSS", "HTML5", "CSS3"],
-  Backend: ["Node.js", "Express.js", "Socket.io", "REST APIs", "WebSockets"],
-  Databases: ["MongoDB", "PostgreSQL", "Prisma ORM", "Mongoose"],
-  DevOps: ["Docker","Docker-Compose", "AWS (EC2, S3)", "CI/CD", "GitHub Actions", "Turborepo"],
+  Languages: ["JavaScript ,", "TypeScript ,", "Java ,", "C"],
+  Frontend: ["React ,", "Next.js ,", "Tailwind CSS ,", "HTML5 ,", "CSS3"],
+  Backend: ["Node.js ,", "Express.js ,", "Socket.io ,", "REST APIs ,", "WebSockets"],
+  Databases: ["MongoDB ,", "PostgreSQL ,", "Prisma ORM ,", "Mongoose"],
+  DevOps: ["Docker ,","Docker-Compose ,", "AWS (EC2, S3) ,", "CI/CD ,", "GitHub Actions ,", "Turborepo"],
 };
