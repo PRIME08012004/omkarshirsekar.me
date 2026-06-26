@@ -567,7 +567,7 @@ export function TerminalWidget({
     <>
       {/* Trigger */}
       <span onClick={() => setOpen(!open)} className="contents">
-        {trigger ?? <DefaultTriggerButton active={open} />}
+        {/* {trigger ?? <DefaultTriggerButton active={open} />} */}
       </span>
 
       {/* Overlay + popup */}
