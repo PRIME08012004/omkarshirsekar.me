@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
+import { useTheme } from "next-themes";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -47,42 +48,86 @@ interface HistoryEntry {
 
 const DATA = {
   about: [
-    ["name",     "Omkar Shirsekar"],
-    ["role",     "Full-Stack Developer & DevOps Enthusiast"],
+    ["name", "Omkar Shirsekar"],
+    ["role", "Full-Stack Developer & DevOps Enthusiast"],
     ["location", "Panvel, Maharashtra, India"],
-    ["college",  "Pillai HOC College of Engg. & Tech."],
-    ["degree",   "B.E. Computer Engineering (2022-2026)"],
-    ["email",    "iamomkar0007@gmail.com"],
-    ["status",   "Open to work"],
+    ["college", "Pillai HOC College of Engg. & Tech."],
+    ["degree", "B.E. Computer Engineering (2022-2026)"],
+    ["email", "iamomkar0007@gmail.com"],
+    ["status", "Open to work"],
   ] as [string, string][],
 
   skills: {
     Languages: ["JavaScript", "TypeScript", "Java", "C"],
-    Frontend:  ["React", "Next.js", "Tailwind CSS", "HTML5"],
-    Backend:   ["Node.js", "Express.js", "Socket.io", "REST APIs"],
+    Frontend: ["React", "Next.js", "Tailwind CSS", "HTML5"],
+    Backend: ["Node.js", "Express.js", "Socket.io", "REST APIs"],
     Databases: ["MongoDB", "PostgreSQL", "Prisma ORM"],
-    DevOps:    ["Docker", "AWS (EC2, S3)", "CI/CD", "GitHub Actions"],
-    Tools:     ["Git", "Turborepo", "Prisma", "Linux"],
+    DevOps: ["Docker", "AWS (EC2, S3)", "CI/CD", "GitHub Actions"],
+    Tools: ["Git", "Turborepo", "Prisma", "Linux"],
   } as Record<string, string[]>,
 
   projects: [
-    { name: "Vivace",    desc: "Salon booking platform",                 stack: "Next.js · Prisma · PostgreSQL · NextAuth", link: "https://vivace.vercel.app"        },
-    { name: "CodeNest",  desc: "Real-time collaborative code editor",    stack: "React · Node.js · Socket.io · WebSockets", link: "https://code-nest-tau.vercel.app" },
-    { name: "HMS",       desc: "Hostel Grievance Redressal System",      stack: "MERN · JWT · Role-based access control",   link: "https://phcet-hms.vercel.app"     },
-    { name: "Quendora",  desc: "Secure journaling app with AI",          stack: "React · Node.js · MongoDB",                link: "https://quendora.vercel.app"      },
+    {
+      name: "Vivace",
+      desc: "Salon booking platform",
+      stack: "Next.js · Prisma · PostgreSQL · NextAuth",
+      link: "https://vivace.vercel.app",
+    },
+    {
+      name: "CodeNest",
+      desc: "Real-time collaborative code editor",
+      stack: "React · Node.js · Socket.io · WebSockets",
+      link: "https://code-nest-tau.vercel.app",
+    },
+    {
+      name: "HMS",
+      desc: "Hostel Grievance Redressal System",
+      stack: "MERN · JWT · Role-based access control",
+      link: "https://phcet-hms.vercel.app",
+    },
+    {
+      name: "Quendora",
+      desc: "Secure journaling app with AI",
+      stack: "React · Node.js · MongoDB",
+      link: "https://quendora.vercel.app",
+    },
   ] as Project[],
 
   certifications: [
-    { name: "JavaScript",     by: "Jonas Schmedtmann", link: "https://drive.google.com/file/d/1t8cCCXw44jabRTnodt03kWNRq8cKLX0G/view" },
-    { name: "Node.js/Express", by: "Jonas Schmedtmann", link: "https://drive.google.com/file/d/1NoqsRlQiAeNUNFaPCBOZhEjjRDEUeuX8/view" },
-    { name: "DevOps",          by: "Harkirat Singh",    link: "https://drive.google.com/file/d/1uiEIC7Iu3HE0QvX0vUaStFKQ82qLdPBf/view" },
+    {
+      name: "JavaScript",
+      by: "Jonas Schmedtmann",
+      link: "https://drive.google.com/file/d/1t8cCCXw44jabRTnodt03kWNRq8cKLX0G/view",
+    },
+    {
+      name: "Node.js/Express",
+      by: "Jonas Schmedtmann",
+      link: "https://drive.google.com/file/d/1NoqsRlQiAeNUNFaPCBOZhEjjRDEUeuX8/view",
+    },
+    {
+      name: "DevOps",
+      by: "Harkirat Singh",
+      link: "https://drive.google.com/file/d/1uiEIC7Iu3HE0QvX0vUaStFKQ82qLdPBf/view",
+    },
   ] as Certification[],
 
   contact: [
-    { key: "email",    val: "iamomkar0007@gmail.com",          href: "mailto:iamomkar0007@gmail.com" },
-    { key: "linkedin", val: "linkedin.com/in/omkar-shirsekar", href: "https://linkedin.com/in/omkar-shirsekar" },
-    { key: "github",   val: "github.com/PRIME08012004",        href: "https://github.com/PRIME08012004" },
-    { key: "phone",    val: "+91 9529388077",                  href: "tel:+919529388077" },
+    {
+      key: "email",
+      val: "iamomkar0007@gmail.com",
+      href: "mailto:iamomkar0007@gmail.com",
+    },
+    {
+      key: "linkedin",
+      val: "linkedin.com/in/omkar-shirsekar",
+      href: "https://linkedin.com/in/omkar-shirsekar",
+    },
+    {
+      key: "github",
+      val: "github.com/PRIME08012004",
+      href: "https://github.com/PRIME08012004",
+    },
+    { key: "phone", val: "+91 9529388077", href: "tel:+919529388077" },
   ] as ContactEntry[],
 };
 
@@ -94,43 +139,66 @@ const uid = () => String(++_uid);
 // Tokyo Night colours
 const C = {
   default: "#a9b1d6",
-  green:   "#9ece6a",
-  blue:    "#7aa2f7",
-  purple:  "#bb9af7",
-  cyan:    "#7dcfff",
-  orange:  "#ff9e64",
-  red:     "#f7768e",
-  yellow:  "#e0af68",
-  muted:   "#565f89",
+  green: "#9ece6a",
+  blue: "#7aa2f7",
+  purple: "#bb9af7",
+  cyan: "#7dcfff",
+  orange: "#ff9e64",
+  red: "#f7768e",
+  yellow: "#e0af68",
+  muted: "#565f89",
 };
 
 const MONO = "'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace";
 
 // Line-segment constructors
-const t   = (content: string, color?: string): LineSegment => ({ kind: "text", content, color });
-const lnk = (content: string, href: string):   LineSegment => ({ kind: "link", content, href });
-const sp  = ():                                LineSegment => ({ kind: "spacer" });
-const ln  = (...segs: LineSegment[]):           OutputLine  => ({ id: uid(), segments: segs });
+const t = (content: string, color?: string): LineSegment => ({
+  kind: "text",
+  content,
+  color,
+});
+const lnk = (content: string, href: string): LineSegment => ({
+  kind: "link",
+  content,
+  href,
+});
+const sp = (): LineSegment => ({ kind: "spacer" });
+const ln = (...segs: LineSegment[]): OutputLine => ({
+  id: uid(),
+  segments: segs,
+});
 
 // ─── Commands ────────────────────────────────────────────────────────────────
 
 const COMMANDS: Record<string, () => OutputLine[] | null> = {
   help: () => [
     ln(t("available commands", C.cyan)),
-    ln(t("  about          ", C.green), t("-- who am i",               C.muted)),
-    ln(t("  skills         ", C.green), t("-- tech stack & tools",     C.muted)),
-    ln(t("  projects       ", C.green), t("-- things i've built",      C.muted)),
-    ln(t("  certifications ", C.green), t("-- courses & credentials",  C.muted)),
-    ln(t("  contact        ", C.green), t("-- get in touch",           C.muted)),
-    ln(t("  resume         ", C.green), t("-- open my resume",         C.muted)),
-    ln(t("  whoami         ", C.green), t("-- quick intro",            C.muted)),
-    ln(t("  clear          ", C.green), t("-- clear terminal",         C.muted)),
+    ln(t("  about          ", C.green), t("-- who am i", C.muted)),
+    ln(t("  skills         ", C.green), t("-- tech stack & tools", C.muted)),
+    ln(t("  projects       ", C.green), t("-- things i've built", C.muted)),
+    ln(t("  certifications ", C.green), t("-- courses & credentials", C.muted)),
+    ln(t("  contact        ", C.green), t("-- get in touch", C.muted)),
+    ln(t("  resume         ", C.green), t("-- open my resume", C.muted)),
+    ln(t("  whoami         ", C.green), t("-- quick intro", C.muted)),
+    ln(t("  clear          ", C.green), t("-- clear terminal", C.muted)),
     ln(sp()),
-    ln(t("tip: ", C.muted), t("arrow keys", C.green), t(" for history · ", C.muted), t("Tab", C.green), t(" to autocomplete", C.muted)),
+    ln(
+      t("tip: ", C.muted),
+      t("arrow keys", C.green),
+      t(" for history · ", C.muted),
+      t("Tab", C.green),
+      t(" to autocomplete", C.muted),
+    ),
   ],
 
   whoami: () => [
-    ln(t("Omkar Shirsekar", C.purple), t(" · ", C.muted), t("Full-Stack Dev", C.default), t(" · ", C.muted), t("Panvel, India", C.default)),
+    ln(
+      t("Omkar Shirsekar", C.purple),
+      t(" · ", C.muted),
+      t("Full-Stack Dev", C.default),
+      t(" · ", C.muted),
+      t("Panvel, India", C.default),
+    ),
     ln(t("Final-year CS student building real products with the MERN stack.")),
     ln(t("Currently open to full-time roles in fullstack & DevOps.", C.green)),
   ],
@@ -138,7 +206,7 @@ const COMMANDS: Record<string, () => OutputLine[] | null> = {
   about: () => [
     ln(t("~/about", C.cyan)),
     ...DATA.about.map(([k, v]) =>
-      ln(t(k.padEnd(12), C.green), t(" -> ", C.muted), t(v))
+      ln(t(k.padEnd(12), C.green), t(" -> ", C.muted), t(v)),
     ),
   ],
 
@@ -174,14 +242,18 @@ const COMMANDS: Record<string, () => OutputLine[] | null> = {
   contact: () => [
     ln(t("~/contact", C.cyan)),
     ...DATA.contact.map((c) =>
-      ln(t(c.key.padEnd(10), C.green), t(" -> ", C.muted), lnk(c.val, c.href))
+      ln(t(c.key.padEnd(10), C.green), t(" -> ", C.muted), lnk(c.val, c.href)),
     ),
   ],
 
   resume: () => {
     setTimeout(
-      () => window.open("https://drive.google.com/file/d/1t8cCCXw44jabRTnodt03kWNRq8cKLX0G/view", "_blank"),
-      300
+      () =>
+        window.open(
+          "https://drive.google.com/file/d/1t8cCCXw44jabRTnodt03kWNRq8cKLX0G/view",
+          "_blank",
+        ),
+      300,
     );
     return [
       ln(t("opening resume...", C.green)),
@@ -212,7 +284,8 @@ function Prompt() {
 // ─── Single output line ───────────────────────────────────────────────────────
 
 function OutputLineRow({ line }: { line: OutputLine }) {
-  const isSpacer = line.segments.length === 1 && line.segments[0].kind === "spacer";
+  const isSpacer =
+    line.segments.length === 1 && line.segments[0].kind === "spacer";
   if (isSpacer) return <div className="h-1.5" />;
 
   return (
@@ -253,16 +326,20 @@ function TerminalBody() {
       type: "welcome",
       lines: [
         ln(t("welcome to omkar's portfolio", C.green), t("  v1.0.0", C.muted)),
-        ln(t("type ", C.muted), t("help", C.green), t(" to see available commands", C.muted)),
+        ln(
+          t("type ", C.muted),
+          t("help", C.green),
+          t(" to see available commands", C.muted),
+        ),
         ln(sp()),
       ],
     },
   ]);
-  const [inputVal, setInputVal]     = useState("");
+  const [inputVal, setInputVal] = useState("");
   const [cmdHistory, setCmdHistory] = useState<string[]>([]);
-  const [histIdx, setHistIdx]       = useState(-1);
-  const bottomRef                   = useRef<HTMLDivElement>(null);
-  const inputRef                    = useRef<HTMLInputElement>(null);
+  const [histIdx, setHistIdx] = useState(-1);
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -286,7 +363,9 @@ function TerminalBody() {
       setEntries((e) => [
         ...e,
         { id: uid(), type: "cmd", cmd },
-        ...(result ? [{ id: uid(), type: "output" as const, lines: result }] : []),
+        ...(result
+          ? [{ id: uid(), type: "output" as const, lines: result }]
+          : []),
       ]);
     } else {
       setEntries((e) => [
@@ -312,7 +391,10 @@ function TerminalBody() {
       e.preventDefault();
       setHistIdx((i) => {
         const next = i - 1;
-        if (next < 0) { setInputVal(""); return -1; }
+        if (next < 0) {
+          setInputVal("");
+          return -1;
+        }
         setInputVal(cmdHistory[next] ?? "");
         return next;
       });
@@ -334,7 +416,11 @@ function TerminalBody() {
         {entries.map((entry) => {
           if (entry.type === "cmd") {
             return (
-              <div key={entry.id} className="flex items-start mt-1" style={{ lineHeight: "1.65" }}>
+              <div
+                key={entry.id}
+                className="flex items-start mt-1"
+                style={{ lineHeight: "1.65" }}
+              >
                 <Prompt />
                 <span style={{ color: C.default }}>{entry.cmd}</span>
               </div>
@@ -343,15 +429,22 @@ function TerminalBody() {
           if (entry.type === "error") {
             return (
               <div key={entry.id} style={{ lineHeight: "1.65" }}>
-                <span style={{ color: C.red }}>zsh: command not found: {entry.errorMsg}</span>
-                <span style={{ color: C.muted }}>  --  type &apos;help&apos; to see available commands</span>
+                <span style={{ color: C.red }}>
+                  zsh: command not found: {entry.errorMsg}
+                </span>
+                <span style={{ color: C.muted }}>
+                  {" "}
+                  -- type &apos;help&apos; to see available commands
+                </span>
               </div>
             );
           }
           if (entry.type === "welcome" || entry.type === "output") {
             return (
               <div key={entry.id} className="mt-0.5">
-                {entry.lines?.map((l) => <OutputLineRow key={l.id} line={l} />)}
+                {entry.lines?.map((l) => (
+                  <OutputLineRow key={l.id} line={l} />
+                ))}
               </div>
             );
           }
@@ -390,9 +483,12 @@ function TerminalBody() {
 // ─── Framer Motion variants ───────────────────────────────────────────────────
 
 const backdropVariants: Variants = {
-  hidden:  { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.22, ease: "easeOut" as const } },
-  exit:    { opacity: 0, transition: { duration: 0.18, ease: "easeIn" as const } },
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.22, ease: "easeOut" as const },
+  },
+  exit: { opacity: 0, transition: { duration: 0.18, ease: "easeIn" as const } },
 };
 
 // macOS-style spring: overshoots slightly, then settles
@@ -411,7 +507,7 @@ const popupVariants: Variants = {
     transition: {
       opacity: { duration: 0.2, ease: "easeOut" as const },
       scale: { type: "spring", stiffness: 360, damping: 26, mass: 0.8 },
-      y:     { type: "spring", stiffness: 360, damping: 26, mass: 0.8 },
+      y: { type: "spring", stiffness: 360, damping: 26, mass: 0.8 },
     },
   },
   exit: {
@@ -440,20 +536,29 @@ interface TerminalWidgetProps {
   trigger?: React.ReactNode;
 }
 
-export function TerminalWidget({ open: controlledOpen, onOpenChange, trigger }: TerminalWidgetProps) {
-  const isControlled  = controlledOpen !== undefined;
+export function TerminalWidget({
+  open: controlledOpen,
+  onOpenChange,
+  trigger,
+}: TerminalWidgetProps) {
+  const isControlled = controlledOpen !== undefined;
   const [self, setSelf] = useState(false);
   const open = isControlled ? controlledOpen! : self;
-
-  const setOpen = useCallback((next: boolean) => {
-    if (isControlled) onOpenChange?.(next);
-    else setSelf(next);
-  }, [isControlled, onOpenChange]);
+   const { theme, setTheme } = useTheme();
+  const setOpen = useCallback(
+    (next: boolean) => {
+      if (isControlled) onOpenChange?.(next);
+      else setSelf(next);
+    },
+    [isControlled, onOpenChange],
+  );
 
   // Close on Escape
   useEffect(() => {
     if (!open) return;
-    const h = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    const h = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
     window.addEventListener("keydown", h);
     return () => window.removeEventListener("keydown", h);
   }, [open, setOpen]);
@@ -473,7 +578,10 @@ export function TerminalWidget({ open: controlledOpen, onOpenChange, trigger }: 
             <motion.div
               key="terminal-backdrop"
               className="fixed inset-0 z-50"
-              style={{ backgroundColor: "rgba(8, 8, 18, 0.65)", backdropFilter: "blur(6px)" }}
+              style={{
+                backgroundColor: "rgba(8, 8, 18, 0.65)",
+                backdropFilter: "blur(6px)",
+              }}
               variants={backdropVariants}
               initial="hidden"
               animate="visible"
@@ -500,12 +608,13 @@ export function TerminalWidget({ open: controlledOpen, onOpenChange, trigger }: 
                 <div
                   className="rounded-xl overflow-hidden flex flex-col"
                   style={{
-                    background: "#1a1b26",
+                    backgroundColor: theme === "dark" ? "#0a0a0a" : "#fafafa",
                     border: "1px solid #2a2b3d",
                     fontFamily: MONO,
                     fontSize: "13px",
                     height: "460px",
-                    boxShadow: "0 32px 72px rgba(0,0,0,0.7), 0 0 0 0.5px rgba(255,255,255,0.04) inset",
+                    boxShadow:
+                      "0 32px 72px rgba(0,0,0,0.7), 0 0 0 0.5px rgba(255,255,255,0.04) inset",
                   }}
                 >
                   {/* Title bar */}
@@ -521,8 +630,14 @@ export function TerminalWidget({ open: controlledOpen, onOpenChange, trigger }: 
                       className="w-3 h-3 rounded-full outline-none"
                       style={{ background: C.red }}
                     />
-                    <span className="w-3 h-3 rounded-full" style={{ background: C.yellow }} />
-                    <span className="w-3 h-3 rounded-full" style={{ background: C.green }} />
+                    <span
+                      className="w-3 h-3 rounded-full"
+                      style={{ background: C.yellow }}
+                    />
+                    <span
+                      className="w-3 h-3 rounded-full"
+                      style={{ background: C.green }}
+                    />
                     <span
                       className="flex-1 text-center text-[11px] select-none tracking-wide"
                       style={{ color: C.muted }}
@@ -548,43 +663,53 @@ export function TerminalWidget({ open: controlledOpen, onOpenChange, trigger }: 
 // ─── Default trigger ──────────────────────────────────────────────────────────
 
 function DefaultTriggerButton({ active }: { active: boolean }) {
-//   return (
-//     // <motion.button
-//     //   aria-label="Toggle terminal"
-//     //   whileHover={{ scale: 1.05 }}
-//     //   whileTap={{ scale: 0.94 }}
-//     //   transition={{ type: "spring", stiffness: 400, damping: 20 }}
-//     //   className={[
-//     //     "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[13px]",
-//     //     "border transition-colors duration-200 select-none outline-none",
-//     //     "focus-visible:ring-2 focus-visible:ring-[#7aa2f7]/50",
-//     //     active
-//     //       ? "border-[#7aa2f7]/30 bg-[#7aa2f7]/10 text-[#7aa2f7]"
-//     //       : "border-white/[0.12] bg-white/[0.05] text-white/50 hover:border-white/20 hover:text-white/80 hover:bg-white/[0.09]",
-//     //   ].join(" ")}
-//     //   style={{ fontFamily: MONO }}
-//     // >
-//     //   <TerminalIcon />
-//     //   <span>terminal</span>
-//     // </motion.button>
-//   );
+  //   return (
+  //     // <motion.button
+  //     //   aria-label="Toggle terminal"
+  //     //   whileHover={{ scale: 1.05 }}
+  //     //   whileTap={{ scale: 0.94 }}
+  //     //   transition={{ type: "spring", stiffness: 400, damping: 20 }}
+  //     //   className={[
+  //     //     "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[13px]",
+  //     //     "border transition-colors duration-200 select-none outline-none",
+  //     //     "focus-visible:ring-2 focus-visible:ring-[#7aa2f7]/50",
+  //     //     active
+  //     //       ? "border-[#7aa2f7]/30 bg-[#7aa2f7]/10 text-[#7aa2f7]"
+  //     //       : "border-white/[0.12] bg-white/[0.05] text-white/50 hover:border-white/20 hover:text-white/80 hover:bg-white/[0.09]",
+  //     //   ].join(" ")}
+  //     //   style={{ fontFamily: MONO }}
+  //     // >
+  //     //   <TerminalIcon />
+  //     //   <span>terminal</span>
+  //     // </motion.button>
+  //   );
 }
 
 function TerminalIcon() {
   return (
     <svg
-      width="13" height="13" viewBox="0 0 14 14"
-      fill="none" xmlns="http://www.w3.org/2000/svg"
+      width="13"
+      height="13"
+      viewBox="0 0 14 14"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
       <polyline
         points="2,4 6,7 2,10"
-        stroke="currentColor" strokeWidth="1.5"
-        strokeLinecap="round" strokeLinejoin="round"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <line
-        x1="7" y1="10" x2="12" y2="10"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
+        x1="7"
+        y1="10"
+        x2="12"
+        y2="10"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
       />
     </svg>
   );
