@@ -548,26 +548,26 @@ export function TerminalWidget({ open: controlledOpen, onOpenChange, trigger }: 
 // ─── Default trigger ──────────────────────────────────────────────────────────
 
 function DefaultTriggerButton({ active }: { active: boolean }) {
-  return (
-    <motion.button
-      aria-label="Toggle terminal"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.94 }}
-      transition={{ type: "spring", stiffness: 400, damping: 20 }}
-      className={[
-        "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[13px]",
-        "border transition-colors duration-200 select-none outline-none",
-        "focus-visible:ring-2 focus-visible:ring-[#7aa2f7]/50",
-        active
-          ? "border-[#7aa2f7]/30 bg-[#7aa2f7]/10 text-[#7aa2f7]"
-          : "border-white/[0.12] bg-white/[0.05] text-white/50 hover:border-white/20 hover:text-white/80 hover:bg-white/[0.09]",
-      ].join(" ")}
-      style={{ fontFamily: MONO }}
-    >
-      <TerminalIcon />
-      <span>terminal</span>
-    </motion.button>
-  );
+//   return (
+//     // <motion.button
+//     //   aria-label="Toggle terminal"
+//     //   whileHover={{ scale: 1.05 }}
+//     //   whileTap={{ scale: 0.94 }}
+//     //   transition={{ type: "spring", stiffness: 400, damping: 20 }}
+//     //   className={[
+//     //     "inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-[13px]",
+//     //     "border transition-colors duration-200 select-none outline-none",
+//     //     "focus-visible:ring-2 focus-visible:ring-[#7aa2f7]/50",
+//     //     active
+//     //       ? "border-[#7aa2f7]/30 bg-[#7aa2f7]/10 text-[#7aa2f7]"
+//     //       : "border-white/[0.12] bg-white/[0.05] text-white/50 hover:border-white/20 hover:text-white/80 hover:bg-white/[0.09]",
+//     //   ].join(" ")}
+//     //   style={{ fontFamily: MONO }}
+//     // >
+//     //   <TerminalIcon />
+//     //   <span>terminal</span>
+//     // </motion.button>
+//   );
 }
 
 function TerminalIcon() {
