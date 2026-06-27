@@ -450,31 +450,26 @@ function TerminalBody() {
           }
           return null;
         })}
-        <div ref={bottomRef} />
-      </div>
+        <div className="flex items-center mt-2">
+          <Prompt />
+          <input
+            ref={inputRef}
+            autoFocus
+            value={inputVal}
+            onChange={(e) => setInputVal(e.target.value)}
+            onKeyDown={handleKeyDown}
+            autoComplete="off"
+            spellCheck={false}
+            className="flex-1 bg-transparent outline-none text-[13px]"
+            style={{
+              fontFamily: MONO,
+              color: C.default,
+              caretColor: C.blue,
+            }}
+          />
+        </div>
 
-      {/* Input row */}
-      <div
-        className="flex items-center px-4 py-2.5 shrink-0"
-        style={{ borderTop: "0.5px solid #2a2b3d" }}
-      >
-        <Prompt />
-        <input
-          ref={inputRef}
-          autoFocus
-          value={inputVal}
-          onChange={(e) => setInputVal(e.target.value)}
-          onKeyDown={handleKeyDown}
-          autoComplete="off"
-          spellCheck={false}
-          placeholder="type 'help' to get started"
-          className="flex-1 bg-transparent outline-none text-[13px]"
-          style={{
-            fontFamily: MONO,
-            color: C.default,
-            caretColor: C.blue,
-          }}
-        />
+        <div ref={bottomRef} />
       </div>
     </div>
   );
@@ -544,7 +539,7 @@ export function TerminalWidget({
   const isControlled = controlledOpen !== undefined;
   const [self, setSelf] = useState(false);
   const open = isControlled ? controlledOpen! : self;
-   const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const setOpen = useCallback(
     (next: boolean) => {
       if (isControlled) onOpenChange?.(next);
