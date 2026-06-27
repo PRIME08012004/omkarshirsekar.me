@@ -9,10 +9,11 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [termOpen, setTermOpen] = useState(false);
-
+  
   useEffect(() => {
     setMounted(true);
   }, []);
+  
 
   const navContent = (
     <div
@@ -73,6 +74,7 @@ export default function Navbar() {
 
       {/* Terminal icon — onClick instead of href */}
       <NavIcon
+      
         label="Terminal"
         onClick={() => setTermOpen(true)}
         active={termOpen}
@@ -123,6 +125,7 @@ export default function Navbar() {
 
       {mounted && (
         <motion.button
+        suppressHydrationWarning
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.07, y: -8 }}
