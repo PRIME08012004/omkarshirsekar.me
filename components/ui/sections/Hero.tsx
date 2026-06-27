@@ -13,26 +13,33 @@ export default function Header() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="mb-10"
     >
-     <div className="flex justify-between  mt-8 md:mt-5">
-         <div className="flex items-start gap-3 mb-2">
-        <div className="w-18 h-18 rounded-full bg-neutral-700 overflow-hidden flex items-center justify-center text-sm font-medium text-neutral-300">
-          <Image 
-          width={200}
-          height={200}
-          alt="profile-pic"
-          src={"/pf.jpeg"}
-          />
+      <div className="flex justify-between  mt-8 md:mt-5">
+        <div className="flex items-start gap-3 mb-2">
+          <div className="w-18 h-18 rounded-full bg-neutral-700 overflow-hidden flex items-center justify-center text-sm font-medium text-neutral-300">
+            <Image
+              width={200}
+              height={200}
+              //we need to add the sixe in order to grt the latest pfp of github 
+              //and there we go we have successfully linked our github to the Portfolio 
+              //Xavi8 method the name of method to be remember
+              src="https://github.com/PRIME08012004.png?size=200"
+              alt="Omkar Shirsekar"
+              priority
+            />
+          </div>
+          <div className="p-2">
+            <h1 className="text-3xl font-medium text-neutral-100">
+              {profile.name}
+            </h1>
+            <p className="text-sm text-neutral-500">{profile.tagline}</p>
+          </div>
         </div>
-        <div className="p-2">
-          <h1 className="text-3xl font-medium text-neutral-100">{profile.name}</h1>
-          <p className="text-sm text-neutral-500">{profile.tagline}</p>
+        <div className="flex items-center ">
+          <CornerButton href="mailto:iamomkar0007@gmail.com">
+            Let&apos;s Connect
+          </CornerButton>
         </div>
-
       </div>
-      <div className="flex items-center ">
-         <CornerButton href="mailto:iamomkar0007@gmail.com">Let&apos;s Connect</CornerButton>
-      </div>
-     </div>
     </motion.div>
   );
 }
