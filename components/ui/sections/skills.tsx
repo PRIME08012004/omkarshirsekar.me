@@ -25,7 +25,7 @@ export default function Skills() {
       >
         {Object.entries(skills).map(([category, items]) => (
           <motion.div key={category} variants={item} className="flex gap-4">
-            <span className="text-xs text-neutral-600 w-20 shrink-0 pt-0.5">{category}</span>
+            <span className="text-xs text-neutral-300 w-20 shrink-0 pt-0.5">{category}</span>
             <div className="flex flex-wrap gap-1.5">
               {items.map((skill) => (
                 <span
