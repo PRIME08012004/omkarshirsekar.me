@@ -6,8 +6,8 @@ Live Website: https://omkarshirsekar.me
 
 ## Tech Stack
 
-* Frontend: [Framework/Language, e.g., React, HTML/CSS]
-* Styling: [Styling tool, e.g., Tailwind CSS]
+* Frontend: [Framework/Language: NextJS]
+* Styling: [Styling tool, e.g., Tailwind CSS,Framer ]
 * Deployment: [Hosting provider, e.g., Vercel, GitHub Pages]
 
 ## Local Development
