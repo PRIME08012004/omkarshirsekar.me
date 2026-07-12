@@ -1,6 +1,6 @@
 "use client";
 
-import { motion , easeOut} from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import { skills } from "@/data/profile-data";
 
 const container = {
@@ -25,13 +25,12 @@ export default function Skills() {
       >
         {Object.entries(skills).map(([category, items]) => (
           <motion.div key={category} variants={item} className="flex gap-4">
-            <span className="text-xs text-neutral-300 w-20 shrink-0 pt-0.5">{category}</span>
+            <span className="text-xs w-20 shrink-0 pt-0.5 text-[color:var(--fg-muted)]">
+              {category}
+            </span>
             <div className="flex flex-wrap gap-1.5">
               {items.map((skill) => (
-                <span
-                  key={skill}
-                  className="text-xs text-neutral-400"
-                >
+                <span key={skill} className="text-xs text-neutral-400">
                   {skill}
                 </span>
               ))}
