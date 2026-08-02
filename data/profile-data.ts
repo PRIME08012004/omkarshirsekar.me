@@ -21,35 +21,33 @@ Deep into fullstack, DevOps, and anything that pushes limits.
 If that sounds like what you're building, let's connect.`;
 
 export const projects = [
-     {
+  {
     name: "Vivace",
-    description: "Salon booking platform with glassmorphism UI, NextAuth, and Prisma-backed bookings",
+    description:
+      "Salon booking platform with glassmorphism UI, NextAuth, and Prisma-backed bookings",
     stack: ["Next.js", "Prisma", "PostgreSQL", "NextAuth"],
     link: "https://vivace-khaki.vercel.app/",
+    github: "https://github.com/PRIME08012004/Vivace",
     date: "2026",
   },
   {
     name: "Hostel Grievance Redressal System",
-    description: "Multi-role grievance platform for college hostels with JWT auth and real-time status tracking",
+    description:
+      "Multi-role grievance platform for college hostels with JWT auth and real-time status tracking",
     stack: ["React", "Node.js", "Express.js", "MongoDB"],
     link: "https://phcet-hms.vercel.app",
+    github: "https://github.com/PRIME08012004/HGMS",
     date: "2025",
   },
   {
     name: "Quendora",
-    description: "Secure journaling app with DeepSeek AI integration and a clean, distraction-free writing experience",
+    description:
+      "Secure journaling app with DeepSeek AI integration and a clean, distraction-free writing experience",
     stack: ["React", "Tailwind CSS", "Java Spring Boot", "MongoDB"],
     link: "https://quendora.vercel.app",
+    github: "https://github.com/PRIME08012004/Quendoara-deployment-frontend",
     date: "May 2026",
   },
-//   {
-//     name: "CodeNest",
-//     description: "Real-time collaborative code editor with live cursor tracking, chat, and whiteboard",
-//     stack: ["React", "Node.js", "Socket.io", "WebSockets"],
-//     link: "https://codenest.vercel.app",
-//     date: "2024",
-//   },
- 
 ];
 
 export const certifications = [
