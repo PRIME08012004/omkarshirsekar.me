@@ -65,22 +65,22 @@ export default function Projects() {
         {projects.map((p) => (
           <motion.article key={p.name} variants={item} className="group">
             {/* Vercel-style deployment preview */}
-            <div className="project-preview mb-4 overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 transition-colors duration-200 group-hover:border-neutral-600">
-              <div className="flex items-center gap-3 border-b border-neutral-800 bg-neutral-900/80 px-3 py-2">
+            <div className="project-preview mb-4 overflow-hidden rounded-lg border border-neutral-800 bg-neutral-950 shadow-none transition-[border-color,box-shadow] duration-200 group-hover:border-neutral-600">
+              <div className="preview-chrome flex items-center gap-3 border-b border-neutral-800 bg-neutral-900/80 px-3 py-2">
                 <div className="flex shrink-0 gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-neutral-700" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-neutral-700" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-neutral-700" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F57]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FEBC2E]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#28C840]" />
                 </div>
                 <div className="flex min-w-0 flex-1 items-center justify-center">
-                  <span className="truncate rounded-md bg-neutral-800/80 px-3 py-1 text-[10px] text-neutral-500">
+                  <span className="preview-url truncate rounded-md bg-neutral-800/80 px-3 py-1 text-[10px] text-neutral-500">
                     {displayHost(p.link)}
                   </span>
                 </div>
                 <div className="w-[42px] shrink-0" aria-hidden />
               </div>
 
-              <div className="relative aspect-[16/10] overflow-hidden bg-neutral-900">
+              <div className="preview-viewport relative aspect-[16/10] overflow-hidden bg-neutral-900">
                 <iframe
                   src={p.link}
                   title={`${p.name} preview`}
@@ -96,7 +96,7 @@ export default function Projects() {
                   className="absolute inset-0 z-10"
                   aria-label={`Open ${p.name} live preview`}
                 />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-neutral-950/40 to-transparent" />
+                <div className="preview-fade pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-neutral-950/40 to-transparent" />
               </div>
             </div>
 
