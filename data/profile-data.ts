@@ -21,6 +21,7 @@ Deep into fullstack, DevOps, and anything that pushes limits.
 If that sounds like what you're building, let's connect.`;
 
 export const projects = [
+ 
   {
     name: "Vivace",
     description:
@@ -47,6 +48,15 @@ export const projects = [
     link: "https://quendora.vercel.app",
     github: "https://github.com/PRIME08012004/Quendoara-deployment-frontend",
     date: "May 2026",
+  },
+   {
+    name: "CodeNest",
+    description:
+      "Real-time collaborative coding platform with shared editors, live sync, and multi-user rooms",
+    stack: ["React", "TypeScript", "Socket.io", "Express", "CodeMirror"],
+    link: "https://codenest.omkarshirsekar.me",
+    github: "https://github.com/PRIME08012004/CodeNest",
+    date: "2026",
   },
 ];
 

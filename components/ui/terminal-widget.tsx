@@ -75,9 +75,9 @@ const DATA = {
     },
     {
       name: "CodeNest",
-      desc: "Real-time collaborative code editor",
-      stack: "React · Node.js · Socket.io · WebSockets",
-      link: "https://code-nest-tau.vercel.app",
+      desc: "Real-time collaborative coding platform",
+      stack: "React · TypeScript · Socket.io · Express",
+      link: "https://codenest.omkarshirsekar.me",
     },
     {
       name: "HMS",
