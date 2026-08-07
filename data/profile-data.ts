@@ -20,8 +20,36 @@ export const summary = `I'm drawn to problems worth solving the kind that make s
 Deep into fullstack, DevOps, and anything that pushes limits.
 If that sounds like what you're building, let's connect.`;
 
+export const experience = [
+  {
+    role: "Web Development Intern",
+    company: "Zidio Org",
+    period: "2026",
+    project: "LOOP",
+    projectLink: "https://loop.omkarshirsekar.me",
+    highlights: [
+      "Built LOOP, an AI customer feedback & sentiment analysis platform for product teams",
+      "Ingested feedback from Google Play reviews, CSV uploads, and support notes into a shared dashboard",
+      "Implemented AI sentiment classification (positive / negative / neutral) and automatic theme clustering on ingest",
+      "Shipped Ask LOOP — plain-English Q&A over feedback with answers grounded in real rows",
+      "Built sentiment overview, week-over-week trends, and multi-member workspaces for owners and analysts",
+      "Integrated NextAuth, Prisma, and PostgreSQL for auth and data; Razorpay for subscription billing",
+      "Wired OpenRouter (Gemini) for document analysis across CSV, TXT, Markdown, and PDF",
+      "Deployed the product at loop.omkarshirsekar.me",
+    ],
+  },
+];
+
 export const projects = [
- 
+  {
+    name: "LOOP",
+    description:
+      "AI customer feedback & sentiment analysis platform — ingest reviews, classify sentiment, surface themes, and ask questions in plain English",
+    stack: ["Next.js", "Prisma", "PostgreSQL", "NextAuth", "OpenRouter", "Razorpay"],
+    link: "https://loop.omkarshirsekar.me",
+    github: "https://github.com/PRIME08012004/loop",
+    date: "2026",
+  },
   {
     name: "Vivace",
     description:

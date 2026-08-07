@@ -68,6 +68,12 @@ const DATA = {
 
   projects: [
     {
+      name: "LOOP",
+      desc: "AI customer feedback & sentiment analysis platform",
+      stack: "Next.js · Prisma · PostgreSQL · OpenRouter · Razorpay",
+      link: "https://loop.omkarshirsekar.me",
+    },
+    {
       name: "Vivace",
       desc: "Salon booking platform",
       stack: "Next.js · Prisma · PostgreSQL · NextAuth",
@@ -92,6 +98,16 @@ const DATA = {
       link: "https://quendora.vercel.app",
     },
   ] as Project[],
+
+  experience: [
+    {
+      role: "Web Development Intern",
+      company: "Zidio Org",
+      period: "2026",
+      project: "LOOP — AI feedback & sentiment platform",
+      link: "https://loop.omkarshirsekar.me",
+    },
+  ],
 
   certifications: [
     {
@@ -175,6 +191,7 @@ const COMMANDS: Record<string, () => OutputLine[] | null> = {
     ln(t("available commands", C.cyan)),
     ln(t("  about          ", C.green), t("-- who am i", C.muted)),
     ln(t("  skills         ", C.green), t("-- tech stack & tools", C.muted)),
+    ln(t("  experience     ", C.green), t("-- work & internships", C.muted)),
     ln(t("  projects       ", C.green), t("-- things i've built", C.muted)),
     ln(t("  certifications ", C.green), t("-- courses & credentials", C.muted)),
     ln(t("  contact        ", C.green), t("-- get in touch", C.muted)),
@@ -216,6 +233,17 @@ const COMMANDS: Record<string, () => OutputLine[] | null> = {
       ln(sp()),
       ln(t(cat, C.purple)),
       ln(t("  " + items.join("  ·  "))),
+    ]),
+  ],
+
+  experience: () => [
+    ln(t("~/experience", C.cyan)),
+    ...DATA.experience.flatMap((e) => [
+      ln(sp()),
+      ln(t(e.role, C.orange), t("  ·  ", C.muted), t(e.company)),
+      ln(t("    " + e.period, C.muted)),
+      ln(t("    " + e.project)),
+      ln(t("    link:  ", C.muted), lnk(e.link, e.link)),
     ]),
   ],
 

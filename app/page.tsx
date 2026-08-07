@@ -7,6 +7,7 @@ import Certifications from "@/components/ui/sections/certification";
 import { cn } from "@/lib/utils";
 import { JetBrains_Mono } from "next/font/google";
 import Education from "@/components/ui/sections/education";
+import Experience from "@/components/ui/sections/experience";
 import Summary from "@/components/ui/sections/introduction";
 import FadeIn from "@/components/ui/fade-in";
 import Navbar from "@/components/ui/navbar";
@@ -29,6 +30,7 @@ export default function Home() {
        <FadeIn direction="bottomLeft" delay={0.1}><Summary /></FadeIn>
        
        <FadeIn direction="bottomLeft" delay={0.1}><Skills /></FadeIn>
+       <FadeIn direction="bottomRight" delay={0.1}><Experience /></FadeIn>
        <FadeIn direction="bottomRight" delay={0.1}><Projects /></FadeIn>
        <FadeIn direction="bottomLeft" delay={0.1}><Certifications /></FadeIn>
        <FadeIn direction="bottomRight" delay={0.1}><Education /></FadeIn>
