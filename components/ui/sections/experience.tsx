@@ -38,24 +38,6 @@ export default function Experience() {
               </span>
             </div>
 
-            {job.project && (
-              <p className="mt-2 text-xs text-neutral-400">
-                Project:{" "}
-                {job.projectLink ? (
-                  <a
-                    href={job.projectLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-neutral-300 underline underline-offset-2 decoration-neutral-700 hover:text-white hover:decoration-neutral-500 transition-colors duration-150"
-                  >
-                    {job.project}
-                  </a>
-                ) : (
-                  <span className="text-neutral-300">{job.project}</span>
-                )}
-              </p>
-            )}
-
             <ul className="mt-3 space-y-1.5">
               {job.highlights.map((h) => (
                 <li

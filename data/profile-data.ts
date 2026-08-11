@@ -25,8 +25,6 @@ export const experience = [
     role: "Web Development Intern",
     company: "Zidio Org",
     period: "2026",
-    // project: "LOOP",
-    // projectLink: "https://loop.omkarshirsekar.me",
     highlights: [
       "Developed full-stack features using Next.js, TypeScript, and Tailwind CSS in a production codebase",
       "Implemented authentication and database workflows with NextAuth, Prisma ORM, and PostgreSQL",
