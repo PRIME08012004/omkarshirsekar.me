@@ -94,7 +94,7 @@ export default function Navbar() {
         <span className="tooltip">Terminal</span>
       </NavIcon>
       <NavIcon
-        href="https://drive.google.com/file/d/1ODWpkzfxffV2Wjn41MzYLJC7PzX6H_s6/view?usp=sharing"
+        href="https://drive.google.com/file/d/1JKrrFbe6Kst6ZyIy1llO2eeRGbc9uqjT/view?usp=sharing"
         label="Resume Link"
       >
         <svg
